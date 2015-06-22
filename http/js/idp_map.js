@@ -68,7 +68,7 @@ function drawDistricts(map){
   var layers = {
     totalIDPs: {
       name: 'Number of IDPs as of April 2015',
-      threshold: [1, 500, 2000, 3500],
+      threshold: [1, 500, 5000, 10000],
       values: totalIDPs
     }
     // totalCases: {
@@ -103,7 +103,7 @@ function drawDistricts(map){
       return {color: color[i], fillColor: color[i], fillOpacity: 0.75, opacity: 0.7, weight: 0.7};
     }
     return function (feature){
-      var pcoderef = feature.properties.PCODE;
+      var pcoderef = feature.properties.Pcode;
       if(pcoderef in values) {
         for (var i = 0; i < 4; i++){
           if (values[pcoderef] < threshold[i])
@@ -249,9 +249,9 @@ function drawDistricts(map){
   info.update = function (props) {
     this._div.innerHTML = '<h4>' + layers[this._layer]['name'] + '</h4>' +  (props ?
       '<table>' +
-      '<tr><td style="text-align: right;">Region: </td><td>&nbsp;&nbsp; <b>' + props.DEPARTEMEN + '</b><td></tr>' +
+      '<tr><td style="text-align: right;">Region: </td><td>&nbsp;&nbsp; <b>' + props.DEPARTAMEN + '</b><td></tr>' +
       '<tr><td style="text-align: right;">District: </td><td>&nbsp;&nbsp; <b>' + props.NAME + '</b><td></tr>' +
-      '<tr><td style="text-align: right;">IDPs: </td><td>&nbsp;&nbsp; <b>' + layers[this._layer]['values'][props.PCODE] + '</b><td></tr>' +
+      '<tr><td style="text-align: right;">IDPs: </td><td>&nbsp;&nbsp; <b>' + layers[this._layer]['values'][props.Pcode] + '</b><td></tr>' +
       '</table>'
       : 'Hover over a district');
   };

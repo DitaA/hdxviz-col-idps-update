@@ -67,8 +67,8 @@ function drawDistricts(map){
 
   var layers = {
     totalIDPs: {
-      name: 'Number of IDPs as of April 2015',
-      threshold: [1, 500, 5000, 10000],
+      name: 'Number of IDPs per 100,000 habitants as of April 2015',
+      threshold: [100, 500, 1000, 2000],
       values: totalIDPs
     }
     // totalCases: {
